@@ -1,0 +1,15 @@
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\bin\Debug\net6.0\Delegates Practice.exe
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\bin\Debug\net6.0\Delegates Practice.deps.json
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\bin\Debug\net6.0\Delegates Practice.runtimeconfig.json
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\bin\Debug\net6.0\Delegates Practice.dll
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\bin\Debug\net6.0\Delegates Practice.pdb
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\obj\Debug\net6.0\Delegates Practice.csproj.AssemblyReference.cache
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\obj\Debug\net6.0\Delegates Practice.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\obj\Debug\net6.0\Delegates Practice.AssemblyInfoInputs.cache
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\obj\Debug\net6.0\Delegates Practice.AssemblyInfo.cs
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\obj\Debug\net6.0\Delegates Practice.csproj.CoreCompileInputs.cache
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\obj\Debug\net6.0\Delegates Practice.dll
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\obj\Debug\net6.0\refint\Delegates Practice.dll
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\obj\Debug\net6.0\Delegates Practice.pdb
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\obj\Debug\net6.0\Delegates Practice.genruntimeconfig.cache
+C:\Users\USer\Desktop\CCv3 Test\Delegates Practice\Delegates Practice\obj\Debug\net6.0\ref\Delegates Practice.dll
