@@ -21,6 +21,7 @@ namespace Delegates_Practice.Assets
             Console.WriteLine("{0} was added to the cart", item.getDisplayTitle());
             itemCount++;
             accumlatedPrice += item.getDisplayPrice();
+            accumlatedPrice = Math.Round(accumlatedPrice, 2); 
         }
 
         public double getAccumulatedPrice() { return accumlatedPrice; }

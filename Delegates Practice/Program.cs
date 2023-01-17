@@ -4,105 +4,53 @@ using System.Xml.Schema;
 
 public delegate double TaxDelegate(double total);
 
-
-
-
 class Program
 {
     static void Main(string[] args)
     {
 
-        ItemsManager itemManager = new ItemsManager();
-        Cart cart = new Cart();
-        MenuSelection menu = new MenuSelection(itemManager, cart);
+        ItemsManager itemManager = new ItemsManager();              // Manages the Items Objects
+        Cart cart = new Cart();                                     // Stores Cart Information
+        MenuSelection menu = new MenuSelection(itemManager, cart);  // Manages what is displayed
         String input = "";
+        TaxDelegate taxDelegate = Taxes.PlaceHolder;                // Delegate to handle calculating taxes
 
 
 
-        while (true) {
-            menu.DisplayShopping();
-            input = Console.ReadLine();
-            if (input == "X") break;
-            try { cart.AddItemToCart(itemManager.getSelectedItem(Int32.Parse(input))); } catch (Exception invalidSelection) { Console.WriteLine("Invalid Selection"); }
-        }
+        menu.DisplayShopping(); // Prompts User with selection and loops until they wish to exit.
+                                // If not exited the item selected is added to the cart
 
-        menu.DisplayPayment();
+
+        menu.DisplayPayment();                                      // Displays Payment Options (States)
+
+
         input = Console.ReadLine();
-
-        TaxDelegate taxDelegate = PlaceHolder;
-        switch (input)
+        switch (input)                                              // Assigns proper tax delegate to respective state
         {
-            case ("1"): taxDelegate = FloridaTax; break;
-            case ("2"): taxDelegate = CaliforniaTax; break;
-            case ("3"): taxDelegate = NewYorkTax; break;
-            case ("4"): taxDelegate = CaliforniaTax; break;
-            case ("5"): taxDelegate = MontanaTax; break;
-            case ("6"): taxDelegate = NevadaTax; break;
-            case ("7"): taxDelegate = KentuckyTax; break;
-            case ("8"): taxDelegate = VermontTax; break;
-            case ("9"): taxDelegate = MissouriTax; break;
-            case ("10"): taxDelegate = NewMexicoTax; break;
+            case ("1"): taxDelegate = Taxes.FloridaTax; break;
+            case ("2"): taxDelegate = Taxes.CaliforniaTax; break;
+            case ("3"): taxDelegate = Taxes.NewYorkTax; break;
+            case ("4"): taxDelegate = Taxes.CaliforniaTax; break;
+            case ("5"): taxDelegate = Taxes.MontanaTax; break;
+            case ("6"): taxDelegate = Taxes.NevadaTax; break;
+            case ("7"): taxDelegate = Taxes.KentuckyTax; break;
+            case ("8"): taxDelegate = Taxes.VermontTax; break;
+            case ("9"): taxDelegate = Taxes.MissouriTax; break;
+            case ("10"): taxDelegate = Taxes.NewMexicoTax; break;
         }
-
-        double taxableAmount = 0;
-        foreach(Items i in cart.ItemsGetItems())
+        for (int i = 0; i < 40; i++) Console.WriteLine("\n");
+        double taxes = Taxes.CalculateTaxes(cart, taxDelegate);       // Calculates the tax amount of all items that are taxable
+        Console.WriteLine("RECEIPT");
+        Console.WriteLine("-------------------------------------");
+        foreach (Items i in cart.ItemsGetItems())
         {
-            if (i.isTaxableItem()) taxableAmount += i.getDisplayPrice();
+            Console.WriteLine("{0}             ${1}", i.getDisplayTitle().PadRight(20), String.Format("{0:.##}", i.getDisplayPrice()));
         }
-        double taxes = taxDelegate(taxableAmount);
-
-        Console.WriteLine("Total: {0}", (cart.getAccumulatedPrice() + taxes));
-        Console.WriteLine("Press Enter to Exit");
-        Console.ReadLine();
-
-    }
-    public static double NewMexicoTax(double total)
-    {
-        return total + (total * .0784);
-    }
-    public static double MissouriTax(double total)
-    {
-        return total + (total * .0707);
-    }
-    public static double VermontTax(double total)
-    {
-        return total + (total * .0624);
-    }
-    public static double KentuckyTax(double total)
-    {
-        return total + (total * .06);
-    }
-    public static double NevadaTax(double total)
-    {
-        return total + (total * .0823);
-    }
-    public static double MontanaTax(double total)
-    {
-        return total + (total * .0749);
-    }
-    public static double NewYorkTax(double total)
-    {
-        return total + (total * .0852);
-    }
-    public static double PlaceHolder(double total)
-    {
-
-        return -1;
-    }
-    public static double FloridaTax(double total)
-    {
-        return total + (total * .07);
+        Console.WriteLine("Subtotal: ${0}", cart.getAccumulatedPrice());
+        Console.WriteLine("Sales Tax: ${0}", taxes);
+        Console.WriteLine("Total: ${0}", String.Format("{0:.##}", cart.getAccumulatedPrice() + taxes));  //Entire purchase price + taxes
     }
 
-    public static double CaliforniaTax(double total)
-    {
-        return total + (total * .0882);
-    }
-
-    public static double ConnecticutTax(double total)
-    {
-        return total + (total * .0637);
-    }
 }
 
 
