@@ -13,9 +13,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USer\\Documents\\GitHub\\Delegates-Lambdas-Generics-Showcase\\Delegates Practice\\Delegates Practice.csproj",
-      "projectName": "Delegates Practice",
-      "projectPath": "C:\\Users\\USer\\Documents\\GitHub\\Delegates-Lambdas-Generics-Showcase\\Delegates Practice\\Delegates Practice.csproj",
+      "projectUniqueName": "C:\\Users\\USer\\Documents\\GitHub\\Delegates-Lambdas-Generics-Showcase\\Delegates Practice\\POS.csproj",
+      "projectName": "POS",
+      "projectPath": "C:\\Users\\USer\\Documents\\GitHub\\Delegates-Lambdas-Generics-Showcase\\Delegates Practice\\POS.csproj",
       "packagesPath": "C:\\Users\\USer\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\USer\\Documents\\GitHub\\Delegates-Lambdas-Generics-Showcase\\Delegates Practice\\obj\\",
       "projectStyle": "PackageReference",

@@ -9,7 +9,7 @@ namespace Delegates_Practice.CheckoutAssets
     internal class ItemsManager
     {
         static List<Items> items = new List<Items>();  
-        public ItemsManager() {
+        public ItemsManager() {                                 // ALL ITEMS FOR SALE ADD HERE
             items.Add(new Items("Cereal", 3.99, true));
             items.Add(new Items("Fruits", 3.59, false));
             items.Add(new Items("Candy", .79, true));
@@ -20,6 +20,11 @@ namespace Delegates_Practice.CheckoutAssets
             items.Add(new Items("Baby Diapers", 17.99, false));
             items.Add(new Items("Toy", 8.99, true));
             items.Add(new Items("Hat", 6.59, true));
+            items.Add(new Items("Pencils", 3.59, true));
+            items.Add(new Items("Sweater", 21.99, true));
+            items.Add(new Items("Vegtables", 1.29, false));
+            items.Add(new Items("Chips", 4.49, true));
+            items.Add(new Items("Hot Dogs", 2.29, false));
         }
 
         public List<Items> getItems(){ return items; }

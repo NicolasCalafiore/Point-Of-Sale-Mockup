@@ -1,0 +1,15 @@
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\bin\Debug\net6.0\POS.exe
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\bin\Debug\net6.0\POS.deps.json
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\bin\Debug\net6.0\POS.runtimeconfig.json
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\bin\Debug\net6.0\POS.dll
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\bin\Debug\net6.0\POS.pdb
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\obj\Debug\net6.0\POS.csproj.AssemblyReference.cache
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\obj\Debug\net6.0\POS.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\obj\Debug\net6.0\POS.AssemblyInfoInputs.cache
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\obj\Debug\net6.0\POS.AssemblyInfo.cs
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\obj\Debug\net6.0\POS.csproj.CoreCompileInputs.cache
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\obj\Debug\net6.0\POS.dll
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\obj\Debug\net6.0\refint\POS.dll
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\obj\Debug\net6.0\POS.pdb
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\obj\Debug\net6.0\POS.genruntimeconfig.cache
+C:\Users\USer\Documents\GitHub\Delegates-Lambdas-Generics-Showcase\Delegates Practice\obj\Debug\net6.0\ref\POS.dll

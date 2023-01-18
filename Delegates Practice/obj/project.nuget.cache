@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "j/1n/PWeQ47rgr1sJqh9yFLfxEW4Hjb+Os9L3m925iI5/CinQWnU99MNvTn3elAMEA81IMjMK7bOundkuayQ7g==",
+  "dgSpecHash": "ehuR19A9GHacX6srZ0TP8HxsWJpLPZphIZQ30OoisNyMMKDZTtZFCg3rXVcLqMOOhbdQqGMNq70mVMXlo4JeCw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\USer\\Documents\\GitHub\\Delegates-Lambdas-Generics-Showcase\\Delegates Practice\\Delegates Practice.csproj",
+  "projectFilePath": "C:\\Users\\USer\\Documents\\GitHub\\Delegates-Lambdas-Generics-Showcase\\Delegates Practice\\POS.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

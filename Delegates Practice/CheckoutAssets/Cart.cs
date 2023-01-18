@@ -17,7 +17,7 @@ namespace Delegates_Practice.CheckoutAssets
         public void AddItemToCart(Items item)
         {
             items.Add(item);
-            Console.WriteLine("{0} was added to the cart", item.getDisplayTitle());
+            Console.WriteLine("{0} was added to the shoppingCart", item.getDisplayTitle());
             itemCount++;
             accumlatedPrice += item.getDisplayPriceDouble();
             accumlatedPrice = Math.Round(accumlatedPrice, 2); 
