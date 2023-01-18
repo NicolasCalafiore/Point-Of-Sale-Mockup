@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Delegates_Practice.Assets
+namespace Delegates_Practice.CheckoutAssets
 {
     internal class ItemsManager
     {

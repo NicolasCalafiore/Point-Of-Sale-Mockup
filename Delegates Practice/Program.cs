@@ -1,58 +1,65 @@
 ﻿
-using Delegates_Practice.Assets;
+using Delegates_Practice.CheckoutAssets;
+using Delegates_Practice;
+using Delegates_Practice.PaymentStrategy;
 using System.Xml.Schema;
+using System.Diagnostics;
 
-public delegate double TaxDelegate(double total);
-
-class Program
+namespace Delegates_Practice
 {
-    static void Main(string[] args)
+    class Program
     {
+        static IPaymentMethodStrategy _payment;                         // Interface for all objects representing forms of payment (Gift Card, Credit Card, PayPal)
+        static IPaymentStrategy _strategy;                              // Interface for all objects representing forms of payment (Gift Card, Credit Card, PayPal)
+        static String input;
 
-        ItemsManager itemManager = new ItemsManager();              // Manages the Items Objects
-        Cart cart = new Cart();                                     // Stores Cart Information
-        MenuSelection menu = new MenuSelection(itemManager, cart);  // Manages what is displayed
-        String input = "";
-        TaxDelegate taxDelegate = Taxes.PlaceHolder;                // Delegate to handle calculating taxes
-
-
-
-        menu.DisplayShopping(); // Prompts User with selection and loops until they wish to exit.
-                                // If not exited the item selected is added to the cart
-
-
-        menu.DisplayPayment();                                      // Displays Payment Options (States)
-
-
-        input = Console.ReadLine();
-        switch (input)                                              // Assigns proper tax delegate to respective state
+        static void Main(string[] args)
         {
-            case ("1"): taxDelegate = Taxes.FloridaTax; break;
-            case ("2"): taxDelegate = Taxes.CaliforniaTax; break;
-            case ("3"): taxDelegate = Taxes.NewYorkTax; break;
-            case ("4"): taxDelegate = Taxes.CaliforniaTax; break;
-            case ("5"): taxDelegate = Taxes.MontanaTax; break;
-            case ("6"): taxDelegate = Taxes.NevadaTax; break;
-            case ("7"): taxDelegate = Taxes.KentuckyTax; break;
-            case ("8"): taxDelegate = Taxes.VermontTax; break;
-            case ("9"): taxDelegate = Taxes.MissouriTax; break;
-            case ("10"): taxDelegate = Taxes.NewMexicoTax; break;
+
+            ItemsManager itemManager = new ItemsManager();              // Manages the Items Objects
+            Cart cart = new Cart();                                     // Stores Cart Information
+            MenuSelection menu = new MenuSelection(itemManager, cart);  // Manages what is displayed
+
+
+            menu.DisplayDebug();                                        //Enables/Disables Debug
+
+            menu.DisplayShopping();                                     // User is prompted with selection of Items. Selected Items are added to the cart. Loop until exit.
+                                   
+            menu.DisplayClientState();                                  // Displays Selection of States to choose from
+            input = Console.ReadLine();
+            Func<double, double> taxDelegate = Taxes.AssignTaxDelegate(input);          // Assigns the correct delegate to decide which tax policy will be applied dependant on state
+
+
+
+            for (int i = 0; i < 40; i++) Console.WriteLine("\n");                       // Padding
+
+            double taxes = Taxes.CalculateTaxes(cart, taxDelegate);                     // Calculates all taxable objects and returns tax amount;
+            List<string> details = processPayment(Int32.Parse(input), cart.getAccumulatedPrice() + taxes, menu);        //Processes payment
+
+            menu.PrintReceipt(cart, taxes, details);                    // Prints Receipt
+
         }
-        for (int i = 0; i < 40; i++) Console.WriteLine("\n");
-        double taxes = Taxes.CalculateTaxes(cart, taxDelegate);       // Calculates the tax amount of all items that are taxable
-        Console.WriteLine("RECEIPT");
-        Console.WriteLine("-------------------------------------");
-        foreach (Items i in cart.ItemsGetItems())
+
+
+        static List<string> processPayment(int option, double total, MenuSelection menu)
         {
-            Console.WriteLine("{0}             ${1}", i.getDisplayTitle().PadRight(20), String.Format("{0:.##}", i.getDisplayPrice()));
+
+            menu.DisplayPaymentMethod();                                // Displays form of tender (Gift Card - Credit Card ?)
+            input = Console.ReadLine();                 
+
+            Tuple<IPaymentStrategy, IPaymentMethodStrategy> paymentInstructions = menu.DisplayPaymentCollections(Int32.Parse(input), _payment, _strategy);
+                                                                                        // Dependant on type of tender the Strategy for payment details & payment processing is returned
+            _strategy = paymentInstructions.Item1;                                      // Contains Strategy for Processing (Tender-Specific Proccesing method)
+            _payment = paymentInstructions.Item2;                                       // Contains Strategy for Display Insructions (What Information is Necessary respective to tender)
+            menu.DisplayPaymentDetails(_payment);                                       // Displays Tender Specific information requests
+            List<string> details = _payment.RetrievePaymentDetails();                   // Retrieves Tender Information
+            _strategy.Pay(total, _payment);                                             // Tender-Specific Proccesing method
+            return details;                                                             // Details are returned for the receipt
+
         }
-        Console.WriteLine("Subtotal: ${0}", cart.getAccumulatedPrice());
-        Console.WriteLine("Sales Tax: ${0}", taxes);
-        Console.WriteLine("Total: ${0}", String.Format("{0:.##}", cart.getAccumulatedPrice() + taxes));  //Entire purchase price + taxes
+
     }
 
 }
-
-
 
 
