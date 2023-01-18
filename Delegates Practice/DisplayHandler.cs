@@ -30,30 +30,18 @@ namespace Delegates_Practice
             else return false;
         }
 
-        public void DisplayShopping(Cart shoppingCart, ItemsManager inventoryManager)
+        public void DisplayShoppingSelection(Cart shoppingCart, ItemsManager inventoryManager)
         {
-            String input = string.Empty;                
-            while (true)
-            {
+            Console.WriteLine("Select Items to Add to Cart          Total Items: {0}   Untaxed Price: ${1}",        // Title
+               shoppingCart.getItemCount(), shoppingCart.getAccumulatedPrice());
 
-                Console.WriteLine("Select Items to Add to Cart          Total Items: {0}   Untaxed Price: ${1}",        // Title
-                shoppingCart.getItemCount(), shoppingCart.getAccumulatedPrice());
-
-                int selectionID = 1;
-                foreach(Items i in inventoryManager.getItems()){                                                             // Loads the List of the variety of items and iterates through each
-                    Console.WriteLine("{0} {1} {2}{3} ", "[" + selectionID++ + "]", i.getDisplayTitle().PadRight(20),  " $", i.getDisplayPriceString());    // ID - Title - Price
-                }
-                    Console.WriteLine("\n");
-                    Console.WriteLine("[X] Head to Checkout");                                      
-                    input = Console.ReadLine();
-
-                    if (input == "X") break;                                                                            // Exits the shopping segment
-                    try { shoppingCart.AddItemToCart(inventoryManager.getSelectedItem(Int32.Parse(input))); }                        // If a valid item is selected the ID is passed to match the Index
-                    catch (Exception) { Console.WriteLine("Invalid Selection"); }
-                    for (int i = 0; i < 40; i++) Console.WriteLine("\n");                                               // Spacing Between Selection Menus
+            int selectionID = 1;
+            foreach (Items i in inventoryManager.getItems())
+            {                                                             // Loads the List of the variety of items and iterates through each
+                Console.WriteLine("{0} {1} {2}{3} ", "[" + selectionID++ + "]", i.getDisplayTitle().PadRight(20), " $", i.getDisplayPriceString());    // ID - Title - Price
             }
             Console.WriteLine("\n");
-            Console.WriteLine("\n");
+            Console.WriteLine("[X] Head to Checkout");
         }
 
         public string DisplayClientState()
