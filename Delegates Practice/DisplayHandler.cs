@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Delegates_Practice.CheckoutAssets;
 using System.Diagnostics;
+using Delegates_Practice.PaymentAssets.PaymentObjects;
 
 namespace Delegates_Practice
 {
@@ -61,20 +62,24 @@ namespace Delegates_Practice
             return Console.ReadLine();
         }
 
-        public void DisplayPaymentMethod()  // Forms of Payment
+        public void DisplayPaymentMethod(IPaymentStrategy[] paymentProcessingRegistry)  // Forms of Payment
         {
-            Console.WriteLine("Choose Payment Method");
-            Console.WriteLine("1. Credit Card");
-            Console.WriteLine("2. PayPal");
-            Console.WriteLine("3. Gift Card");
+
+
+
+            foreach (IPaymentStrategy i in paymentProcessingRegistry)
+            {
+
+                Console.WriteLine("({0}): {1}", i.getTenderID(), i.getTenderName());
+            }
         }               
 
 
                                                           
 
-        public void DisplayPaymentDetails(IPaymentMethodDisplayStrategy _paymentInformationDisplayStrategy)
+        public void DisplayPaymentDetails(IPaymentStrategy paymentInstructions)
         {
-            _paymentInformationDisplayStrategy.GetPaymentDetails();
+            paymentInstructions.GetPaymentDetails();
         }
 
         public void PrintReceipt(Cart shoppingCart, double taxAmount, List<string> paymentDetails, bool debugModeEnabled)

@@ -8,6 +8,11 @@ namespace Delegates_Practice.PaymentStrategy
 {
     abstract class IPaymentStrategy
     {
-        public abstract List<string> Pay(double amount, IPaymentMethodDisplayStrategy Payment);
+        public abstract int getTenderID();
+        public abstract string getTenderName();
+        public abstract List<string> Pay(double amount);
+
+        public abstract void GetPaymentDetails();
+        public abstract List<string> RetrievePaymentDetails(double amount);
     }
 }
